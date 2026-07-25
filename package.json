@@ -1,0 +1,7 @@
+{
+  "name": "musc-root",
+  "private": true,
+  "scripts": {
+    "build": "cd muscfit && npm install && npm run build"
+  }
+}
