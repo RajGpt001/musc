@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0A0A0C;
+  --color-surface: #151518;
+  --color-surface-elevated: #1D1D22;
+  
+  --color-accent-primary: #B8FF3C;
+  --color-accent-secondary: #E8352B;
+  
+  --color-text-primary: #F7F7F5;
+  --color-text-muted: #9A9AA2;
+  
+  --color-border: #28282E;
+
+  --font-display: "Anton", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Motion Tokens */
+  --ease-power: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-cinematic: cubic-bezier(0.25, 1, 0.5, 1);
+  
+  --animate-duration-fast: 150ms;
+  --animate-duration-base: 300ms;
+  --animate-duration-slow: 500ms;
+  --animate-duration-cinematic: 1200ms;
+}
+
+/* Base resets & utilities */
+@layer base {
+  body {
+    @apply bg-background text-text-primary font-body antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted); 
+}
+
+/* Utilities */
+@layer utilities {
+  .clip-angled {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+  }
+  .clip-angled-sm {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+  }
+}
