@@ -27,7 +27,6 @@ export const Navbar: React.FC = () => {
   const toggleCartDrawer = useUiStore(state => state.toggleCartDrawer);
   const totalItems = useCartStore(state => state.totalItems);
   const location = useLocation();
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -52,22 +51,8 @@ export const Navbar: React.FC = () => {
 
   // Close mega menu when route changes
   useEffect(() => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setHoveredNav(null);
     if (isMobileMenuOpen) toggleMobileMenu();
   }, [location.pathname]);
-
-  const handleMouseEnter = (name: string) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setHoveredNav(name);
-  };
-
-  const handleNavLeave = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      setHoveredNav(null);
-    }, 250);
-  };
 
   return (
     <>

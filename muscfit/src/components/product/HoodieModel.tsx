@@ -73,7 +73,7 @@ const createRibbedNormalMap = () => {
 };
 
 export const HoodieModel: React.FC<{ colorHex?: string }> = ({ colorHex = '#111111' }) => {
-  const materials = useRef<{ main: THREE.MeshStandardMaterial; dark: THREE.MeshStandardMaterial }>();
+  const materials = useRef<{ main: THREE.MeshStandardMaterial; dark: THREE.MeshStandardMaterial } | null>(null);
   
   // Create textures and materials once
   useMemo(() => {

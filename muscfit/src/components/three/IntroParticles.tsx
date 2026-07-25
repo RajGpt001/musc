@@ -11,7 +11,7 @@ const PARTICLE_COUNT = 2000; // Increased to 2000 for better image resolution
 
 // Helper to extract colored points from a texture
 const getPixelsFromTexture = (texture: THREE.Texture, count: number) => {
-  const img = texture.image;
+  const img = texture.image as HTMLImageElement;
   const canvas = document.createElement('canvas');
   canvas.width = img.width;
   canvas.height = img.height;
@@ -29,7 +29,7 @@ const getPixelsFromTexture = (texture: THREE.Texture, count: number) => {
       for (let x = 0; x < img.width; x++) {
         const idx = (y * img.width + x) * 4;
         // Check alpha channel to see if it's solid (or brightness if no alpha)
-        const alpha = imgData[idx + 3];
+        // Check brightness to see if it's solid
         const brightness = (imgData[idx] + imgData[idx+1] + imgData[idx+2]) / 3;
         
         // We will sample pixels that are reasonably visible
