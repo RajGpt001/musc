@@ -12,6 +12,7 @@ const IntroSequence = lazy(() => import('./components/three/IntroSequence').then
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
+import { ImageCarouselHeroDemo } from './components/ui/demo';
 import SizeGuide from './pages/SizeGuide';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
@@ -44,6 +45,7 @@ function App() {
             {/* Standard layout routes */}
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/ai-demo" element={<ImageCarouselHeroDemo />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/product/:slug" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />
