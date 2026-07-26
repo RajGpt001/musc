@@ -6,7 +6,7 @@ import { NoiseOverlay } from './components/ui/NoiseOverlay';
 import { Layout } from './components/layout/Layout';
 import { CartFlyAnimation } from './components/ui/CartFlyAnimation';
 
-const IntroSequence = lazy(() => import('./components/three/IntroSequence').then(m => ({ default: m.IntroSequence })));
+// Removed IntroSequence import to fix TS6133
 
 // Real Pages
 import Home from './pages/Home';

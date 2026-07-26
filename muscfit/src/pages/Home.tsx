@@ -15,7 +15,7 @@ import { PageWrapper } from '../components/layout/PageWrapper';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroScene = lazy(() => import('../components/three/HeroScene').then(m => ({ default: m.HeroScene })));
+// Removed HeroScene import to fix TS6133
 const ProductShowcase = lazy(() => import('../components/product/ProductShowcase').then(m => ({ default: m.ProductShowcase })));
 import { SEO } from '../lib/seo';
 import { ImageCarouselHeroDemo } from '../components/ui/demo';
