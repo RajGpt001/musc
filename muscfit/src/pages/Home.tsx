@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 const HeroScene = lazy(() => import('../components/three/HeroScene').then(m => ({ default: m.HeroScene })));
 const ProductShowcase = lazy(() => import('../components/product/ProductShowcase').then(m => ({ default: m.ProductShowcase })));
 import { SEO } from '../lib/seo';
-
+import { ImageCarouselHeroDemo } from '../components/ui/demo';
 // Framer motion variants
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -72,49 +72,7 @@ const Home: React.FC = () => {
     <PageWrapper>
       <SEO />
       {/* Hero Section */}
-      <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-background">
-        <div className="absolute inset-0 z-0 opacity-80 pointer-events-none">
-          <LazyCanvasWrapper minHeight="100%" forceRender>
-            <ErrorBoundary>
-              <Suspense fallback={<div className="absolute inset-0 bg-background" />}>
-                <Canvas camera={{ position: [0, 0, 5], fov: 50 }} dpr={[1, 2]}>
-                  <HeroScene />
-                </Canvas>
-              </Suspense>
-            </ErrorBoundary>
-          </LazyCanvasWrapper>
-        </div>
-        
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-center text-center px-6 mt-16 pointer-events-none">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          >
-            <h1 className="font-display text-text-primary text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tight uppercase mb-6 mix-blend-difference">
-              Defy Your <br/><span className="text-accent-primary">Limits</span>
-            </h1>
-            <p className="font-body text-text-primary/80 md:text-xl max-w-xl mx-auto mb-10">
-              Advanced performance apparel engineered to adapt to your environment and defy your limits.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto">
-              <Link to="/shop?category=men"><Button size="lg">Shop Men</Button></Link>
-              <Link to="/shop?category=women"><Button size="lg" variant="outline">Shop Women</Button></Link>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-10 opacity-50"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        >
-          <span className="text-[10px] font-display tracking-widest uppercase mb-2">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-text-primary to-transparent" />
-        </motion.div>
-      </section>
+      <ImageCarouselHeroDemo />
 
       {/* 2. CATEGORY BENTO GRID */}
       <section className="py-24 px-6 lg:px-12 max-w-[1600px] mx-auto">

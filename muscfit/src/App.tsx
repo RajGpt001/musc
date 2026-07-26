@@ -33,7 +33,6 @@ function App() {
     <>
       <CartFlyAnimation />
       <NoiseOverlay />
-      <IntroSequence />
       <GlobalLoader />
       
       <AnimatePresence mode="wait">
